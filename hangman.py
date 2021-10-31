@@ -8,7 +8,7 @@ def main():
     word = random.choice(a)
     # print(word) # Sanity check to view word
 
-    # Create a list for the guessed word, a T / F dictionary to keep track of guessed, Dictionary for counts
+    # Create a list for the guessed word, a T / F dictionary to keep track of guessed letters, Dictionary for letter count
     Guessed = dict()
     guessWord = list()
     GuessWordDict = dict()
