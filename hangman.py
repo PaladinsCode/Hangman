@@ -44,16 +44,20 @@ def main():
                 print("Letter in Word! :)")
                 printProgress(word, Guessed, hangmanCount, GuessedLetters)
         else:
-            GuessedLetters.add(userInput)
-            print("Letter not in word :(")
-            hangmanCount -= 1
-            printProgress(word, Guessed, hangmanCount, GuessedLetters)
+            if userInput in GuessedLetters:
+                print("You already guessed this letter. It is incorrect.")
+                printProgress(word, Guessed, hangmanCount, GuessedLetters)
+            else:
+                hangmanCount -= 1
+                GuessedLetters.add(userInput)
+                print("Letter not in word :(")
+                printProgress(word, Guessed, hangmanCount, GuessedLetters)
 
     if hangmanCount == 0:
         print(" You have used up your guessed, the word is: ", word)
 
 def printProgress(word:str, guess:dict(),hangmanCount, GuessedLetters:set) -> str:
-    # Print Tthe word
+    print("#########################################################")
     for letter in word:
         if letter in guess:
             if guess[letter] == True:
